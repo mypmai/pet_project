@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Pet</title>
+</head>
+<body>
+	<a href="/main">Back to Main Page</a>
+	<h1>Add Pet</h1>
+	{% if messages %}
+    	{% for message in messages %}
+        	<p style="color:red">{{ message }}</p>
+    	{% endfor %}
+	{% endif %}
+	<form action="/createpet" method="post">
+	{% csrf_token %}
+		<input type="text" name="name" placeholder="Name of Pet">
+		<input type="text" name="kind" placeholder="Type of Animal">
+		<input type="submit" value="Add Pet">
+	</form>
+</body>
+</html>

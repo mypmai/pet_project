@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pet Page</title>
+</head>
+<body>
+	<a href="/logout">Logout</a>
+	<h1>Pets App</h1>
+	<h3>Welcome {{request.session.first_name}}</h3>
+	<a href="/addpet">Add a pet</a>
+	<hr>
+	<h3>My pet</h3>
+	{%for pet in mypets.pets.all %}
+		<p>{{pet.name}} the {{pet.kind}} <a href="/delete/{{pet.id}}">Delete</a></p>
+	{%endfor%}
+	<hr>
+	<h3>Other User:</h3>
+	{%for user in other_user%}
+		<p><a href="/show/{{user.id}}">{{user.first_name}} {{user.last_name}}</a> {{user.pets.all.count}}</p>
+	{%endfor%}
+
+</body>
+</html>

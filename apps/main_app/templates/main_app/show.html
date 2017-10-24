@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Show</title>
+</head>
+<body>
+	<a href="/main">Back to Main</a>
+	<h1>Name: {{user.first_name}}</h1>
+
+	<h1>Pets:</h1>
+	{%for pet in user.pets.all%}
+		<p>{{pet.name}} the {{pet.kind}}</p>
+	{%endfor%}
+</body>
+</html>
